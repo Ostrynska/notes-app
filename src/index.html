@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notes App</title>
+
+    <link rel="icon" href="./images/icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header class="container-lg header">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="./index.html" id="hills">Notes App</a>
+      </nav>
+      <button
+        id="createNote"
+        type="button"
+        class="btn btn-primary btn-primary-custom"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        Create Note
+      </button>
+    </header>
+    <main>
+      <section class="container-lg">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Created</th>
+              <th scope="col">Category</th>
+              <th scope="col">Content</th>
+              <th scope="col">Dates</th>
+              <th scope="col">
+                <img src="./images/archive_icon.png" width="26" alt="Archive" />
+                <img src="./images/delete_icon.png" width="26" alt="Delete" />
+              </th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+
+        <!-- <div
+          id="alertToast"
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-body">
+            Are you sure that ou want to delete this note?
+            <div class="mt-2 pt-2 border-top">
+              <button type="button" class="btn btn-primary btn-sm delete">
+                Delete
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary btn-sm"
+                data-bs-dismiss="toast"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </section>
+
+      <section class="container-lg">
+        <table class="table table-category">
+          <thead>
+            <tr>
+              <th scope="col">tttttttttttt</th>
+              <th scope="col">Note Category</th>
+              <th scope="col">Active</th>
+              <th scope="col">Archived</th>
+            </tr>
+          </thead>
+          <tbody id="tableBodyCategoty"></tbody>
+        </table>
+      </section>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Create New Note
+              </h1>
+              <button
+                type="button"
+                class="btn btn-close close-note"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="noteForm">
+                <div class="mb-3">
+                  <label for="title" class="col-form-label">Title</label>
+                  <input
+                    type="text"
+                    class="form-control note-title"
+                    id="title"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="content" class="col-form-label"
+                    >New note...</label
+                  >
+                  <textarea
+                    class="form-control note-content"
+                    id="content"
+                    rows="5"
+                  ></textarea>
+                </div>
+                <label for="categorySelect" class="form-label">Categoty</label>
+                <div class="col-md">
+                  <select class="form-select note-category" id="categorySelect">
+                    <option value="Task">Task</option>
+                    <option value="Random thought">Random thought</option>
+                    <option value="Idea">Idea</option>
+                    <option value="Quote" selected>Quote</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <!-- <button
+                  type="button"
+                  class="btn btn-secondary close-note"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button> -->
+              <button type="button" class="btn btn-primary note-btn">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script type="module" src="./index.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"
+      ></script>
+    </main>
+  </body>
+</html>
