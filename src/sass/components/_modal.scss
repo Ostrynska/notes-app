@@ -1,0 +1,30 @@
+.modal-custom {
+    h1 {
+        color: $colorDark;
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+form {
+    label {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    input {
+        &:hover {
+            border-color: $strokeGrey;
+    }
+    }
+    textarea {
+        &:hover {
+            border-color: $strokeGrey;
+    }
+    }
+    select {
+        &:hover {
+            border-color: $strokeGrey;
+    }
+    }
+}
+

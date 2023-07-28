@@ -1,3 +1,10 @@
 .btn-primary-custom {
-    background-color: $colorAccent;
+    background-color: $colorLight;
+    color: $textMain;
+    border-color: $colorAccent;
+        &:hover {
+            background-color: $colorDark;
+            color: $textWhite;
+            border-color: $bgDark;
+    }
 }
