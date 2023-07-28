@@ -1,12 +1,8 @@
-import { annotate } from 'https://unpkg.com/rough-notation?module';
+// import { annotate } from 'https://unpkg.com/rough-notation?module';
 
-export default function highlightText() {
-  const a3 = document.querySelector('#hills');
-  a3 = annotate(a3, { type: 'underline', color: $colorDark });
-  console.log(a3);
-  a3.show();
-}
-
-highlightText();
+const n3 = document.getElementById('hills');
+console.log(n3);
+// const a3 = annotate(n3, { type: 'underline', color: $colorDark });
+// a3.show();
 
 console.log('hi');
