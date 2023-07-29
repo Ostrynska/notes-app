@@ -1,0 +1,12 @@
+.btn-primary-custom {
+    background-color: $colorLight;
+    color: $textMain;
+    border-color: $colorAccent;
+    display: inline-flex;
+    margin-left: 20px;
+        &:hover {
+            background-color: $colorDark;
+            color: $textWhite;
+            border-color: $bgDark;
+    }
+}

@@ -10,6 +10,7 @@ let isUpdate = false,
   updateId = null;
 
 // function addNote() {}
+const addBtn = document.querySelector('.note-btn');
 
 addBtn.addEventListener('click', e => {
   e.preventDefault();
