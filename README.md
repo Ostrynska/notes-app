@@ -3,7 +3,7 @@
 ## Demo
 
 <p align="center">
-  <img src="https://res.cloudinary.com/dcjlswtup/image/upload/v1690742089/Screenshot_2023-07-30_at_21.33.30_tzqkpd.png" alt="Desktop Demo">
+  <img src="https://res.cloudinary.com/dcjlswtup/image/upload/v1690746585/Screenshot_2023-07-30_at_22.48.43_hrtnpy.png" alt="Desktop Demo">
 </p>
 
 ## Features
