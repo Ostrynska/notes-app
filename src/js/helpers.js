@@ -1,6 +1,6 @@
-import { data } from "./data/notes.js";
-import { refs } from "./refs.js";
-import { months } from "./data/months.js";
+import { data } from './data/notes.js';
+import { refs } from './refs.js';
+import { months } from './data/months.js';
 import { annotate } from 'https://unpkg.com/rough-notation?module';
 
 export function highlightText() {
@@ -20,11 +20,11 @@ export function extractDate(text) {
 }
 
 export function createDate() {
-    let dateObj = new Date(),
-        month = months[dateObj.getMonth()],
-        day = dateObj.getDate(),
-        year = dateObj.getFullYear();
-    return `${month} ${day}, ${year}`;
+  let dateObj = new Date(),
+    month = months[dateObj.getMonth()],
+    day = dateObj.getDate(),
+    year = dateObj.getFullYear();
+  return `${month} ${day}, ${year}`;
 }
 
 export function calculateStats() {
@@ -35,14 +35,24 @@ export function calculateStats() {
         archivedNotes: 0,
       };
     }
-      categoryStats[item.category].totalNotes +=1;
+    categoryStats[item.category].totalNotes += 1;
 
     if (item.archived === true) {
-      categoryStats[item.category].archivedNotes+=1;
+      categoryStats[item.category].archivedNotes += 1;
       categoryStats[item.category].totalNotes -= 1;
     }
     return categoryStats;
   }, {});
 }
 
+export function showReadMoreButton(moreBtn, desc) {
+  const isClosed = moreBtn.innerText === 'read more';
 
+  if (isClosed) {
+    moreBtn.innerText = 'read less';
+    desc.classList.add('full');
+  } else {
+    moreBtn.innerText = 'read more';
+    desc.classList.remove('full');
+  }
+}
