@@ -10,7 +10,7 @@
 
 * Users can add, edit and remove notes. 
 * A list of notes is displayed as a table. 
-* The columns are a time of creation, note content, and note category. Categories are predefined: “Task”, “Random Thought”, and “Idea”.
+* The columns are a time of creation, note content, and note category. Categories are predefined: “Task”, “Random Thought”, “Quote”, and “Idea”.
 * Notes in the table also display a list of dates mentioned in this note as a separate column. 
 * Users can archive notes. Archived notes are not shown in the notes list. Users can view archived notes and unarchive them.
 * The summary table is shown on the same page as the notes table.
