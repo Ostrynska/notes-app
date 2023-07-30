@@ -1,7 +1,11 @@
 import { data } from './data/notes.js';
 import { images } from './data/images.js';
 import { refs } from './refs.js';
-import { extractDate, calculateStats } from '../js/helpers.js';
+import {
+  extractDate,
+  calculateStats,
+  showReadMoreButton,
+} from '../js/helpers.js';
 import {
   archivedNotes,
   deleteNote,
@@ -33,7 +37,9 @@ export function renderMainTable(showArchived = false) {
                 <td class="title">${item.name}</td>
                 <td>${item.created}</td>
                 <td>${item.category}</td>
-                <td>${item.content}</td>
+                <td><p class="page-desc">
+                ${item.content}</p>
+                <button class="more-btn">read more</button></td>
                 <td>${extractDate(item.content)}</td>
                 <td>
                     <div class="action-icons">
@@ -44,15 +50,28 @@ export function renderMainTable(showArchived = false) {
                 </td>`;
         refs.tableBody.prepend(row);
 
-        //edit btn
         const editBtn = document.getElementById('edit-btn');
         editBtn.addEventListener('click', () => editNote(item.id));
-        //archive btn
+
         const archiveBtn = document.getElementById('archive-btn');
         archiveBtn.addEventListener('click', () => archiveNote(item.id));
-        //delete btn
+
         const deleteBtn = document.getElementById('delete-btn');
         deleteBtn.addEventListener('click', () => deleteNote(item.id));
+
+        const moreBtn = row.querySelector('.more-btn');
+        const desc = row.querySelector('.page-desc');
+        const divSize = desc.getBoundingClientRect().height;
+
+        if (divSize < 64) {
+          moreBtn.style.display = 'none';
+        } else {
+          moreBtn.style.display = 'inline-block';
+        }
+
+        moreBtn.addEventListener('click', function () {
+          showReadMoreButton(moreBtn, desc);
+        });
       }
     });
   }

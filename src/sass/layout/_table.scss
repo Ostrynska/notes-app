@@ -62,3 +62,29 @@
 .title {
     font-weight: 500;
 }
+
+.page-desc {
+    margin: 0;
+    max-height: 66px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 0 15%;
+    &.full {
+    max-height: none;
+    }
+}
+
+.more-btn {
+    background: none;
+    align-self: flex-end;
+    border: none;
+    margin-left: auto;
+    font-size: 12px;
+    color: $colorAccent;
+    text-decoration: underline;
+    padding: 0;
+    cursor: pointer;
+    &:hover {
+    text-decoration: none;
+}
+}
