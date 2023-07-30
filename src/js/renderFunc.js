@@ -28,9 +28,9 @@ export function renderMainTable(showArchived = false) {
             <th scope="row">
                 <img src="${images[item.category]}" alt="${
           item.category
-        }" width="32px">
+        }" width="40px">
             </th>
-                <td>${item.name}</td>
+                <td class="title">${item.name}</td>
                 <td>${item.created}</td>
                 <td>${item.category}</td>
                 <td>${item.content}</td>
@@ -66,7 +66,7 @@ export function renderStatsTable() {
   for (const category in categoryStats) {
     const rowCategory = document.createElement('tr');
     rowCategory.innerHTML = `
-       <td><img src="${images[category]}" alt="${category}" width="32px"> </td>
+       <td><img src="${images[category]}" alt="${category}" width="40px"> </td>
        <td>${category}</td>
       <td>${categoryStats[category].totalNotes}</td>
       <td>${categoryStats[category].archivedNotes}</td>

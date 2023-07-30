@@ -21,7 +21,7 @@
         }
     }
 
-    .thead-archived {
+.thead-archived {
         th {
             height: 45px;
             text-align: center;
@@ -29,13 +29,13 @@
             color: $textDark;
             font-size: 17px;
         }
-                div {
+        div {
             height: fit-content;
             display: flex;
             gap: 10px;
             justify-content: flex-end;
-                img {
-                    cursor: pointer;
+            img {
+                cursor: pointer;
             }
         }
         .img-wrapp {
@@ -57,4 +57,8 @@
             cursor: pointer;
         }
     }
+}
+
+.title {
+    font-weight: 500;
 }

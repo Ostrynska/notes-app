@@ -26,7 +26,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="./sass/main.css" />
+    <link rel="stylesheet" href="./css/main.min.css" />
   </head>
 
   <body>
@@ -34,18 +34,26 @@
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="./index.html" id="hills">Notes App</a>
       </nav>
-  <div class="navbar-btn">
-  <button id="archive-open" style="display: none;"><img src="./images/archive_btn_icon.png" alt="Archive" height="34px" data-bs-toggle="modal" data-bs-target="#fullModal"></button>
-      <button
-        id="createNote"
-        type="button"
-        class="btn btn-primary btn-primary-custom"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-      >
-        Create Note
-      </button>
-    </div>
+      <div class="navbar-btn">
+        <button id="archive-open" style="display: none">
+          <img
+            src="./images/archive_btn_icon.png"
+            alt="Archive"
+            height="34px"
+            data-bs-toggle="modal"
+            data-bs-target="#fullModal"
+          />
+        </button>
+        <button
+          id="createNote"
+          type="button"
+          class="btn btn-primary btn-primary-custom"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Create Note
+        </button>
+      </div>
     </header>
     <main>
       <section class="container-lg">
@@ -63,9 +71,16 @@
                   <img
                     src="./images/archive_white_icon.png"
                     width="26"
-                    alt="Archive" id="archive-all-btn"
+                    alt="Archive"
+                    id="archive-all-btn"
                   />
-                  <img src="./images/delete_white_icon.png" width="26" height="24px" alt="Delete" id="delete-all-btn"/>
+                  <img
+                    src="./images/delete_white_icon.png"
+                    width="26"
+                    height="24px"
+                    alt="Delete"
+                    id="delete-all-btn"
+                  />
                 </div>
               </th>
             </tr>
@@ -141,7 +156,7 @@
               </form>
             </div>
             <div class="modal-footer">
-      <button
+              <button
                 type="button"
                 class="btn btn-primary note-btn btn-primary-custom"
               >
@@ -152,8 +167,14 @@
         </div>
       </div>
 
-      <div class="modal fade modal-custom" id="fullModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-      <div class="modal-dialog modal-fullscreen-xxl-down modal-xl">
+      <div
+        class="modal fade modal-custom"
+        id="fullModal"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1"
+      >
+        <div class="modal-dialog modal-fullscreen-xxl-down modal-xl">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="fullModalLabel">
@@ -167,31 +188,33 @@
             </div>
 
             <div class="modal-body">
-        <table class="table table-hover archived-table">
-          <thead class="thead-archived" id="thead-archived">
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Name</th>
-              <th scope="col">Created</th>
-              <th scope="col">Category</th>
-              <th scope="col">Content</th>
-              <th scope="col">Dates</th>
-              <th scope="col" class="img-wrapp">
-                <div>
-                  <img
-                    src="./images/archive_black_icon.png"
-                    width="26"
-                    alt="Archive" class="unarchive-all-btn" id="unarchive-all-btn"
-                  />
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody id="tableBodyArchived" class="tbody"></tbody>
-        </table>
+              <table class="table table-hover archived-table">
+                <thead class="thead-archived" id="thead-archived">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Dates</th>
+                    <th scope="col" class="img-wrapp">
+                      <div>
+                        <img
+                          src="./images/archive_black_icon.png"
+                          width="26"
+                          alt="Archive"
+                          class="unarchive-all-btn"
+                          id="unarchive-all-btn"
+                        />
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="tableBodyArchived" class="tbody"></tbody>
+              </table>
             </div>
-         </div>
-      </div>
+          </div>
+        </div>
       </div>
 
       <footer class="container-lg footer">
