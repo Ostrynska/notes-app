@@ -1,10 +1,11 @@
 import { refs } from "./refs.js";
 import { data } from "./data/notes.js";
-import {generateId, createDate} from './helpers.js'
+import { generateId, createDate, calculateStats } from './helpers.js'
 
-import { renderMainTable, renderStatsTable } from "./app.js";
-// import { runApp } from "./app.js";
+import { renderPage } from "./app.js";
+
 export let archivedNotes = [],
+  statsBeforeDeletion =  [],
     isUpdate = false,
     updateId = null;
 
@@ -35,7 +36,7 @@ export function addNote() {
     }
         refs.noteForm.reset();
         refs.closeBtn.click();
-        renderMainTable();
+      renderPage();
     }
 }
 
@@ -70,45 +71,89 @@ export function editNote(idx){
   }
 }
 
-export function deleteNote(id)
-{
-    const index = data.findIndex(item => item.id === id);
-    const confirmDel = confirm('Are you sure that you want to delete this note?');
-    if (!confirmDel) return;
-    data.splice(index, 1);
-    renderMainTable()
-    // runApp();
+export function deleteNote(id) {
+  const index = data.findIndex((item) => item.id === id);
+  const confirmDel = confirm('Are you sure that you want to delete this note?');
+  if (!confirmDel) return;
+  statsBeforeDeletion = {...calculateStats()};
+  data.splice(index, 1);
+
+  renderPage();
 }
 
 export function deleteAllNotes()
 {
     const confirmDel = confirm('Are you sure that you want to delete ALL notes?');
-    if (!confirmDel) return;
+  if (!confirmDel) return;
+  statsBeforeDeletion = { ...calculateStats() };
   data.length = 0;
-  renderMainTable();
+  renderPage();
 }
 
 export function archiveNote(id) {
-    const note = data.find(item => item.id === id);
-    console.log(note);
+  const note = data.find(item => item.id === id);
 
   if (note) {
-      note.archived = !note.archived;
+    note.archived = !note.archived;
+    const existingNote = archivedNotes.find(item => item.id === id);
+
+    if (note.archived && !existingNote) {
       archivedNotes.push(note);
-        const allArchived = data.every(item => item.archived);
-      if (archivedNotes.length > 0 || allArchived) {
-          refs.openArchive.style.display = 'inline-block'
-      }
-    //   else {
-    //       refs.openArchive.style.display = 'none'
-    //   }
-    renderMainTable();
-    renderStatsTable();
- }
+    } else if (!note.archived && existingNote) {
+      const index = archivedNotes.findIndex(item => item.id === id);
+      archivedNotes.splice(index, 1);
+    }
+
+    if (archivedNotes.length > 0) {
+      refs.openArchive.style.display = 'inline-block';
+    } else {
+      refs.openArchive.style.display = 'none';
+    }
+
+    renderPage();
+  }
 }
 
 export function archiveAllNotes() {
     data.forEach(item => item.archived = true);
-    archivedNotes.push(...data)
-    renderMainTable();
+  archivedNotes.push(...data)
+  console.log(archivedNotes);
+  if (data.every(item => item.archived)) {
+      refs.openArchive.style.display = 'inline-block';
+    } else {
+      refs.openArchive.style.display = 'none';
+    }
+    renderPage();
+}
+
+export function unarchiveNote(id)
+{
+  const noteIndex = archivedNotes.findIndex(item => item.id === id);
+  const isNoteExists = data.some(item => item.id === id);
+  const note = archivedNotes.splice(noteIndex, 1)[0];
+  note.archived = false;
+
+    if (archivedNotes.length === 0) {
+      refs.closeArchiveBtn.click();
+      refs.openArchive.style.display = 'none';
+    }
+
+      renderPage();
+  }
+
+
+export function unarchiveAllNotes() {
+
+  archivedNotes.forEach(item => (item.archived = false));
+  if (archivedNotes.every(item => item.archived = false)) {
+    archivedNotes.length = 0;
+  }
+
+  if (archivedNotes.every(item => !item.archived)) {
+    refs.closeArchiveBtn.click();
+    refs.openArchive.style.display = 'none';
+  }
+
+  archivedNotes.length = 0;
+    renderPage();
 }

@@ -26,7 +26,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="./css/main.min.css" />
+    <link rel="stylesheet" href="./sass/main.css" />
   </head>
 
   <body>
@@ -34,6 +34,8 @@
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="./index.html" id="hills">Notes App</a>
       </nav>
+  <div class="navbar-btn">
+  <button id="archive-open" style="display: none;"><img src="./images/archive_btn_icon.png" alt="Archive" height="34px" data-bs-toggle="modal" data-bs-target="#fullModal"></button>
       <button
         id="createNote"
         type="button"
@@ -43,11 +45,12 @@
       >
         Create Note
       </button>
+    </div>
     </header>
     <main>
       <section class="container-lg">
-        <table class="table table-hover">
-          <thead class="thead">
+        <table class="table table-hover main-table">
+          <thead class="thead thead-main">
             <tr>
               <th scope="col"></th>
               <th scope="col">Name</th>
@@ -58,11 +61,11 @@
               <th scope="col" class="img-wrapp">
                 <div>
                   <img
-                    src="./images/archive_icon.png"
+                    src="./images/archive_white_icon.png"
                     width="26"
-                    alt="Archive"
+                    alt="Archive" id="archive-all-btn"
                   />
-                  <img src="./images/delete_icon.png" width="26" alt="Delete" />
+                  <img src="./images/delete_white_icon.png" width="26" height="24px" alt="Delete" id="delete-all-btn"/>
                 </div>
               </th>
             </tr>
@@ -71,7 +74,7 @@
         </table>
       </section>
 
-      <!-- <section class="container-lg">
+      <section class="container-lg">
         <table class="table table-category table-hover">
           <thead class="thead">
             <tr>
@@ -81,12 +84,12 @@
               <th scope="col">Archived</th>
             </tr>
           </thead>
-          <tbody id="tableBodyCategoty"></tbody>
+          <tbody id="tableBodyCategory"></tbody>
         </table>
-      </section> -->
+      </section>
 
       <!-- Modal -->
-      <!-- <div
+      <div
         class="modal fade modal-custom"
         id="staticBackdrop"
         data-bs-backdrop="static"
@@ -107,6 +110,7 @@
                 data-bs-dismiss="modal"
               ></button>
             </div>
+
             <div class="modal-body">
               <form id="noteForm" class="form">
                 <div class="mb-3">
@@ -137,14 +141,7 @@
               </form>
             </div>
             <div class="modal-footer">
-               <button
-                  type="button"
-                  class="btn btn-secondary close-note"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button> -->
-      <!-- <button
+      <button
                 type="button"
                 class="btn btn-primary note-btn btn-primary-custom"
               >
@@ -153,19 +150,62 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
-      <!-- <footer class="container-lg footer">
+      <div class="modal fade modal-custom" id="fullModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen-xxl-down modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="fullModalLabel">
+                Archived Notes
+              </h1>
+              <button
+                type="button"
+                class="btn btn-close close-archive"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+        <table class="table table-hover archived-table">
+          <thead class="thead-archived" id="thead-archived">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Created</th>
+              <th scope="col">Category</th>
+              <th scope="col">Content</th>
+              <th scope="col">Dates</th>
+              <th scope="col" class="img-wrapp">
+                <div>
+                  <img
+                    src="./images/archive_black_icon.png"
+                    width="26"
+                    alt="Archive" class="unarchive-all-btn" id="unarchive-all-btn"
+                  />
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="tableBodyArchived" class="tbody"></tbody>
+        </table>
+            </div>
+         </div>
+      </div>
+      </div>
+
+      <footer class="container-lg footer">
         <p class="footer-text">
           ©<span id="currentYear"></span> All rigths reserved 🇺🇦
           <strong>Kateryna Ostrynska</strong>
         </p>
-      </footer> -->
-      <!-- <script
+      </footer>
+
+      <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"
-      ></script> -->
+      ></script>
     </main>
     <script type="module" src="./js/app.js"></script>
   </body>

@@ -1,4 +1,4 @@
-import generateId from '../helpers/generateId';
+import {generateId} from '../helpers.js'
 
 export let data = [
   {
@@ -67,4 +67,4 @@ export let data = [
     dates: '',
     archived: false,
   },
-];
+]
